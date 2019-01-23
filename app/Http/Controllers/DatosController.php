@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Heroes;
 use Illuminate\Http\Request;
 
 class DatosController extends Controller
@@ -15,11 +16,14 @@ class DatosController extends Controller
     {
         if($request->ajax())
         {
-            return response()->json([
+            $datos = Heroes::all();
+            return response()->json($datos,200);
+
+            /*return response()->json([
                 ['id'=>1,'nombre'=>'hulk', 'historia'=>'lo que sea', 'fecha'=>'2015'],
                 ['id'=>2,'nombre'=>'spid', 'historia'=>'lo que sea', 'fecha'=>'2015'],
                 ['id'=>3,'nombre'=>'bat', 'historia'=>'lo que sea', 'fecha'=>'2015']
-            ]);
+            ],200);*/
         }
     }
 
@@ -41,7 +45,20 @@ class DatosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){
+            $dato = new Heroes();
+
+            $dato->name = $request->input('name');
+            $dato->history = $request->input('history');
+            $dato->anio = $request->input('anio');
+
+            $dato->save();
+            //Pasamos los datos y respuesta para refrescar
+            return response()->json([
+                "message"=>"Heroe Guardado con éxito",
+                "dato"=>$dato
+            ],200);
+        }
     }
 
     /**

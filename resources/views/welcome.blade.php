@@ -95,6 +95,8 @@
             </div>
             <example-component></example-component>
             <listado-component></listado-component>
+            <adddata-component></adddata-component>
+            <modaldata-component></modaldata-component>
         </div>
         <script src="{{asset('js/app.js')}}"></script>
     </body>

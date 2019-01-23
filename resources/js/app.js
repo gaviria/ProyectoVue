@@ -23,6 +23,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('listado-component', require('./components/listadoComponent.vue').default);
 Vue.component('spinner-component', require('./components/spinnerComponent.vue').default);
+Vue.component('adddata-component', require('./components/addDataComponent.vue').default);
+Vue.component('modaldata-component', require('./components/modalDataComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
