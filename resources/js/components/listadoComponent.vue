@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import EventBus from '../event-bus';
+    import EventBus from '../event-bus'; //Importamos el EventBus para compartir los datos entre componentes
     export default {
         name: "listado-component",
         data(){ //Pasa datos
